@@ -1,0 +1,99 @@
+# second-brain
+
+> **Interactive Bootstrap Manifest for AI-agent-driven Obsidian Second Brain vaults.**
+> Implements the Karpathy LLM Wiki pattern. Platform-independent — no Python, Node, or Bash required.
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+## What is this?
+
+A modular template system that an AI agent (Claude, Cursor, Gemini, or any capable
+LLM) reads and executes to create a complete Obsidian Second Brain vault from
+scratch — with three-layer architecture, five core operations, an Agent Memory
+Protocol, and interactive setup.
+
+```
+VAULT_BOOTSTRAP_MANIFEST.md    ← Orchestrator (5K, the entry point)
+manifest/                      ← 12 chapter files (instructions for the agent)
+vault-artifacts/               ← 42 template files (copied into the vault)
+```
+
+## Quick Start
+
+### Prerequisites
+
+- **Obsidian** installed (free from [obsidian.md](https://obsidian.md))
+- An **AI agent** that can read files and create folders/files
+- **Optional but recommended:** Dataview and Templater community plugins
+
+### Installation (3 steps)
+
+#### Step 1 — Get the manifest
+
+```bash
+git clone https://github.com/nakielski/second-brain.git
+cd second-brain
+```
+
+Or download the ZIP and extract it.
+
+#### Step 2 — Create an empty vault folder
+
+```bash
+mkdir ~/my-second-brain
+```
+
+Open this folder in Obsidian: **Settings → Vault → Open folder as vault**.
+
+> **Important:** The vault folder must be empty. The manifest never overwrites existing files.
+
+#### Step 3 — Run the bootstrap
+
+Open your AI agent, point it at this repository, and say:
+
+> Read `VAULT_BOOTSTRAP_MANIFEST.md` and execute it.
+> Create the vault in `~/my-second-brain`.
+
+The agent will ask 7 questions, then build the full vault.
+
+### Setup Questions (Q1–Q7)
+
+| # | Question | Options | Default |
+|---|----------|---------|--------|
+| Q1 | Language? | German / English / Mixed | Mixed |
+| Q2 | Your name? | (used in templates) | — |
+| Q3 | Primary domains? | 3–7 domains | — |
+| Q4 | Daily notes? | Daily/ / Journal/ / None | Daily/ |
+| Q5 | Agent Memory? | Yes (full) / Yes (minimal) / No | Yes (full) |
+| Q6 | Existing content? | Fresh start / Import | Fresh start |
+| Q7 | Dataview plugin? | Yes / No | Yes |
+
+## Architecture
+
+```
+raw/     →  Immutable sources (human curates, agent reads, NEVER modifies)
+wiki/    →  Agent-generated knowledge (agent writes, human reads)
+system/  →  Schema and operations (defines rules, agent follows)
+```
+
+## Five Core Operations
+
+| Operation | Trigger | What happens |
+|-----------|---------|-------------|
+| **Ingest** | Drop source in `raw/` | Agent creates wiki pages, cascades updates |
+| **Query** | Ask a question | Agent searches wiki, answers with citations |
+| **Lint** | User request | Health checks: contradictions, orphans, drift |
+| **Review** | User request | Resolves contradictions, promotes notes |
+| **Eval** | After major ingest | Golden questions → quality metrics |
+
+## Post-Bootstrap
+
+1. **Open in Obsidian** — register templates folder in Templater settings
+2. **Drop a source** into `raw/articles/`
+3. **Tell your agent:** "Ingest the new source in raw/articles/"
+4. **Ask:** "What does the wiki say about [topic]?"
+5. **Weekly:** "Lint the wiki"
+
+## License
+
+MIT
