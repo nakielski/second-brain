@@ -86,6 +86,32 @@ system/  →  Schema and operations (defines rules, agent follows)
 | **Review** | User request | Resolves contradictions, promotes notes |
 | **Eval** | After major ingest | Golden questions → quality metrics |
 
+## Design Principles
+
+This project is built on principles that go beyond "it works":
+
+- **Vendor-agnostic by design** — Pure Markdown. No runtime, no CLI, no install
+  script. Works with any LLM that can read and write files. Switch agents anytime.
+- **Interactive, not static** — 7 setup questions personalize the vault before a
+  single file is created. Language, domains, memory depth, and daily notes are
+  all configurable.
+- **Tested, not assumed** — A 46-item acceptance test validates every bootstrap.
+  Structure, frontmatter, JSON validity, and content completeness are all checked.
+- **Governed, not improvised** — 11 enforceable rules in `VAULT.md` with a defined
+  precedence chain. Privacy protections, concurrency control, and immutability
+  guarantees are explicit, not implicit.
+- **Measurable, not subjective** — The Lint health score uses a published formula.
+  Raw counts are reported alongside the score for full transparency.
+- **Resumable, not fragile** — Interrupted bootstraps pick up where they left off
+  via `BOOTSTRAP-STATE.md`. No start-over penalty.
+- **Comprehensive, not fragmented** — PARA + Zettelkasten + MOC + Karpathy Wiki
+  in one vault, unified by an Ownership Matrix that defines who owns what.
+- **Concurrency-ready** — `.lock` protocol with stale detection for multi-agent
+  safety. Git branching for multi-user setups.
+
+These are not features bolted on after launch. They are architectural decisions
+made before the first file was written.
+
 ## Post-Bootstrap
 
 1. **Open in Obsidian** — register templates folder in Templater settings
