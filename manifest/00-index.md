@@ -6,7 +6,7 @@ created: YYYY-MM-DD
 updated: YYYY-MM-DD
 ---
 
-# Manifest Index — v1.0
+# Manifest Index — v1.1
 
 Read this file first, then follow the order below.
 
@@ -26,6 +26,7 @@ Read this file first, then follow the order below.
 - `03-ownership-matrix.md` — canonical matrix lives in `VAULT.md`; this file is a pointer.
 - `10-migrations.md` — migration notes for existing vaults; not read during bootstrap.
 - `11-proposed-extensions.md` — Semantic Search, Claim-Level Provenance — DECISION-REQUIRED; not read during bootstrap.
+- `12-write-rule-enforcement.md` — Three-layer write rule enforcement patterns (atomic writes, checklists, post-write verification).
 
 ## Key features
 
@@ -34,3 +35,4 @@ Read this file first, then follow the order below.
 - Lint expanded from 6 to 7 checks (index drift).
 - `BOOTSTRAP-STATE.template.md` introduced for resumable bootstraps.
 - `manifest/` is NOT copied into the vault after bootstrap.
+- AGENTS.md template includes atomic write pattern and 3-column checklist (since v1.1).
