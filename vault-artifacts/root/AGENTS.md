@@ -5,15 +5,16 @@ type: note
 status: active
 tags: [agents, protocol]
 created: 2026-07-29
-updated: 2026-08-05
+updated: 2026-08-06
 ---
 
 **Session Start:**
+
 1. Read VAULT.md (rules + ownership matrix).
 2. Task routing — read ONLY what the task requires:
 
 | If the task is… | then read |
-|-----------------|-----------|
+|-----------------|----------|
 | a knowledge question | wiki/index.json + relevant pages |
 | an ingest request | the raw/ file + Ingest Procedure.md |
 | an eval request | Eval Procedure.md + golden-questions.md |
@@ -33,6 +34,7 @@ updated: 2026-08-05
 - When making a decision: log in agent-memory/decisions/.
 
 **Three-Layer Write Rule (MANDATORY before every vault write):**
+
 Before writing ANY file to the vault, classify the content into one of three layers:
 
 | Layer | Path | What goes here | Mutability |
@@ -43,12 +45,29 @@ Before writing ANY file to the vault, classify the content into one of three lay
 
 A single piece of work may touch ALL THREE layers. Example: documenting a migration = raw/conversations/ (session record) + wiki/concepts/ (knowledge) + wiki/log/ (operation log) + PARA (human-readable reference).
 
+**Atomic Write Pattern:**
+
+All affected layers MUST be written in the same turn. Before any PARA write, confirm:
+
+```
+Three-Layer Write Check:
+- [ ] raw/ — created? path: ...
+- [ ] wiki/ — created? path: ...
+- [ ] PARA — created? path: ...
+```
+
+If a layer is "No" but should be affected: STOP, fix before proceeding. "I'll write raw/ and wiki/ later" is not acceptable. A task is NOT complete until ALL affected layers are updated.
+
+For enforcement details (post-write verification, platform extension points, anti-patterns), see `manifest/12-write-rule-enforcement.md`.
+
 **Session End** (only if files were actually modified):
 1. Write session log to 90-system/session-logs/.
 2. Update memory-index.md if memories were created.
 3. Regenerate index.json files via Index Rebuild Procedure.md.
 4. Append to wiki log if any operation was performed.
-5. Summarize in 2–3 sentences. If nothing changed: no writes.
+5. Summarize in 2–3 sentences.
+
+If nothing changed: no writes.
 
 Session logs older than 90 days are moved to 06-archive/.
 
