@@ -115,8 +115,7 @@ This project is built on principles that go beyond "it works":
   via `BOOTSTRAP-STATE.md`. No start-over penalty.
 - **Comprehensive, not fragmented** — PARA + Zettelkasten + MOC + Karpathy Wiki
   in one vault, unified by an Ownership Matrix that defines who owns what.
-- **Concurrency-ready** — `.lock` protocol with stale detection for multi-agent
-  safety. Git branching for multi-user setups.
+- **Concurrency-ready** — append-only write log with actor attribution; conflicts between concurrent writers are detected from overlapping log entries, and Git branching supports multi-user setups.
 
 These are not features bolted on after launch. They are architectural decisions
 made before the first file was written.
