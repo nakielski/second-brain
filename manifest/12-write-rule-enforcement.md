@@ -64,7 +64,7 @@ Advisory rules and checklists are "soft enforcement." For hard detection, a plat
 
 - **Cron job or hook** that reads `.vault-write-log.jsonl`: did an actor write to PARA in the last N hours without matching raw/ and wiki/ entries by the SAME actor?
 - **Index drift check** in the same run: reconcile `wiki/` (and `agent-memory/`) files on disk against `index.json` — every file present, every index entry backed by a file; drift of any direction alerts
-- **Alert** (notification, log entry) when a violation is detected
+- **Alert** (notification, log entry) when a violation is detected; remediation follows the `Remediation Procedure` operation
 - **Silent** when everything is in order
 
 This is platform-specific and intentionally NOT part of the generic manifest. Each agent platform implements its own verification reading the same log format. The manifest defines the pattern; the platform implements the code.

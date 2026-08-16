@@ -6,7 +6,7 @@ created: YYYY-MM-DD
 updated: YYYY-MM-DD
 ---
 
-# Manifest Index — v1.1
+# Manifest Index — v1.2
 
 Read this file first, then follow the order below.
 
@@ -38,3 +38,7 @@ Read this file first, then follow the order below.
 - `BOOTSTRAP-STATE.template.md` introduced for resumable bootstraps.
 - `manifest/` is NOT copied into the vault after bootstrap.
 - AGENTS.md template includes atomic write pattern and 3-column checklist (since v1.1).
+- Append-only vault write log replaces mtime-based checks and the lock file protocol; verification correlates writes by actor (chapter 13, since v1.2).
+- Setup asks about vector databases / external memory so renames can update external references (Q8, since v1.2).
+- Deterministic uid formula; placeholder uids are invalid (since v1.2).
+- Fixed kebab-case PARA folder set, enforced by the acceptance test (since v1.2).

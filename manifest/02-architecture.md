@@ -28,9 +28,9 @@ And five core operations:
 | **Review** | Triggered on request | Agent resolves flagged contradictions, promotes mature notes, consolidates concept pages, transitions page status |
 | **Eval** | Triggered after major ingest or on request | Agent runs golden questions, reports citation/hallucination/missing-knowledge metrics |
 
-There are **5 core operations** but **7 procedure files** under
+There are **5 core operations** but **8 procedure files** under
 `90-system/Operations/`: ingest-, query-, lint-, review-, eval-procedure.md,
-plus `Index Rebuild Procedure.md` and `Rename and Move Procedure.md`. The two
-latter ones are not core operations; they are shared utilities invoked by the
-core operations (index regeneration after writes; path updates on renames and
-moves).
+plus `Index Rebuild Procedure.md`, `Rename and Move Procedure.md`, and
+`Remediation Procedure.md`. The three latter ones are not core operations;
+they are shared utilities (index regeneration after writes; path updates on
+renames and moves; gap closure after a detected write-rule violation).
