@@ -28,6 +28,7 @@ Read this file first, then follow the order below.
 - `11-proposed-extensions.md` — Semantic Search, Claim-Level Provenance — DECISION-REQUIRED; not read during bootstrap.
 - `12-write-rule-enforcement.md` — Three-layer write rule enforcement patterns (atomic writes, checklists, post-write verification).
 - `13-write-log.md` — Append-only vault write log (`.vault-write-log.jsonl`): format, rules, conflict detection, and what post-write verification reads.
+- `14-unattended-writes.md` — Policy for automated vault writers (cron jobs, watchdogs): deliver-don't-write, exception rules, verification.
 
 ## Key features
 

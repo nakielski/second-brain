@@ -89,6 +89,7 @@ After each step: update `BOOTSTRAP-STATE.md`.
 | `11-proposed-extensions.md` | Proposed future extensions | Not in bootstrap |
 | `12-write-rule-enforcement.md` | Write rule enforcement patterns | Not in bootstrap |
 | `13-write-log.md` | Vault write log specification | Not in bootstrap |
+| `14-unattended-writes.md` | Policy for automated vault writers | Not in bootstrap |
 
 ## Post-bootstrap handling of manifest/
 

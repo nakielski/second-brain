@@ -90,6 +90,10 @@ This is the "protocol self-violation" pattern:
 
 **Prevention:** The atomic write pattern (Layer 1) and the three-column checklist (Layer 2) exist specifically to prevent this. If the agent follows the checklist, the violation cannot happen.
 
+## Unattended writers
+
+Automated processes (cron jobs, watchers, schedulers) do not write vault content directly — they deliver, and an agent performs the structured write. Exception rules for unavoidable direct writes: `14-unattended-writes.md`.
+
 ## Relationship to Other Chapters
 
 - `02-architecture.md` defines the three layers and their purposes
