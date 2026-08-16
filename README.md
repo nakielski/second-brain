@@ -54,9 +54,9 @@ Open your AI agent, point it at this repository, and say:
 > Read `VAULT_BOOTSTRAP_MANIFEST.md` and execute it.
 > Create the vault in `~/my-second-brain`.
 
-The agent will ask 7 questions, then build the full vault.
+The agent will ask 8 questions, then build the full vault.
 
-### Setup Questions (Q1–Q7)
+### Setup Questions (Q1–Q8)
 
 | # | Question | Options | Default |
 |---|----------|---------|--------|
@@ -67,6 +67,7 @@ The agent will ask 7 questions, then build the full vault.
 | Q5 | Agent Memory? | Yes (full) / Yes (minimal) / No | Yes (full) |
 | Q6 | Existing content? | Fresh start / Import | Fresh start |
 | Q7 | Dataview plugin? | Yes / No | Yes |
+| Q8 | Vector DB / external memory store? | None / provider + connection | None |
 
 ## Architecture
 
@@ -85,6 +86,14 @@ system/  →  Schema and operations (defines rules, agent follows)
 | **Lint** | User request | Health checks: contradictions, orphans, drift |
 | **Review** | User request | Resolves contradictions, promotes notes |
 | **Eval** | After major ingest | Golden questions → quality metrics |
+
+**Working with agents:** Point your agent at `AGENTS.md` in the vault root — it
+defines the session protocol, layer classification, and write rules. Prefer one
+agent session as the single write path for vault content, including content
+triggered by automations (they deliver, the agent writes — see
+`manifest/14-unattended-writes.md`). If multiple agents share the vault, the
+append-only write log (`.vault-write-log.jsonl`) is the coordination surface:
+conflicts are detected from overlapping log entries, not lock files.
 
 ## Design Principles
 

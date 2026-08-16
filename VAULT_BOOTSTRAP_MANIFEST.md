@@ -8,7 +8,7 @@ tags: [second-brain, obsidian, ai-agent, vault-setup, karpathy-llm-wiki, templat
 # VAULT BOOTSTRAP MANIFEST — v1.0
 
 > **IMPORTANT:** This is a TEMPLATE. Copy it into a NEW, empty vault.
-> An AI agent reads this file, asks 7 questions, and generates a complete
+> An AI agent reads this file, asks 8 questions, and generates a complete
 > Karpathy-compatible Second Brain vault.
 >
 > **v1.0:** The manifest is an
@@ -26,9 +26,9 @@ Agent Memory Protocol and interactive setup.
 Two kinds of placeholder appear in `vault-artifacts/`. They are treated
 in opposite ways:
 
-1. `{{DOUBLE_BRACES}}` — setup tokens. REPLACE with the Q1–Q7 answers.
+1. `{{DOUBLE_BRACES}}` — setup tokens. REPLACE with the Q1–Q8 answers.
    Tokens: `{{USER_NAME}}`, `{{LANGUAGE}}`, `{{DOMAINS}}`, `{{DAILY_FOLDER}}`,
-   `{{MEMORY_MODE}}`, `{{IMPORT_PATH}}`
+   `{{MEMORY_MODE}}`, `{{IMPORT_PATH}}`, `{{VECTOR_DB}}`
 2. `<% tp.something %>` — Templater syntax. COPY VERBATIM. Do not evaluate,
    do not replace, do not "helpfully" insert today's date. Obsidian's
    Templater plugin evaluates these later, at note creation time.
@@ -59,7 +59,7 @@ If it exists: read it, resume at the first unchecked step, never redo
 completed steps. If it does not exist: copy the template and start at step 1.
 
 1. Read `manifest/00-index.md`.
-2. Read `manifest/01-interactive-setup.md` and ask Q1–Q7.
+2. Read `manifest/01-interactive-setup.md` and ask Q1–Q8.
 3. Write answers to `BOOTSTRAP-STATE.md`.
 4. Read `manifest/04-vault-structure.md` and create all folders.
 5. Read `manifest/07-file-mapping.md` and copy `vault-artifacts/` accordingly.
@@ -76,7 +76,7 @@ After each step: update `BOOTSTRAP-STATE.md`.
 | File | Purpose | Bootstrap path |
 |---|---|---|
 | `00-index.md` | Navigation and reading order | Step 1 |
-| `01-interactive-setup.md` | Q1–Q7 | Step 2 |
+| `01-interactive-setup.md` | Q1–Q8 | Step 2 |
 | `02-architecture.md` | Three-layer system + operation table | Reference |
 | `03-ownership-matrix.md` | PARA ↔ Wiki ownership | Reference |
 | `04-vault-structure.md` | Folder tree | Step 4 |

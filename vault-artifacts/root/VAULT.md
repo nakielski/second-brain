@@ -27,6 +27,7 @@ updated: YYYY-MM-DD
 - **These rules are the SINGLE SOURCE OF TRUTH.** Precedence: VAULT.md > AGENTS.md > CLAUDE.md > Skills.
 - Language: {{LANGUAGE}}
 - Owner: {{USER_NAME}}
+- External memory / vector database (Q8): {{VECTOR_DB}} — if set, every rename or move must update its references (see Operations: Rename and Move Procedure)
 
 ## Ownership Matrix
 

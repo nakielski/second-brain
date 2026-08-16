@@ -46,8 +46,8 @@ updated: YYYY-MM-DD
 - [ ] 5 Extended Templates (on demand)
 - [ ] 3 standards + Write Log Standard
 
-### Operations (6 procedure files)
-- [ ] Ingest, Query, Lint, Review, Eval + Index Rebuild
+### Operations (7 procedure files)
+- [ ] Ingest, Query, Lint, Review, Eval + Index Rebuild + Rename and Move
 
 ### Quality
 - [ ] Every `.md` file has frontmatter starting at line 1

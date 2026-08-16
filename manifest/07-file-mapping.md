@@ -20,6 +20,7 @@ Copy every file from `vault-artifacts/` to the vault target path.
 | `operations/review-procedure.md` | `90-system/Operations/Review Procedure.md` | Title Case | always |
 | `operations/eval-procedure.md` | `90-system/Operations/Eval Procedure.md` | Title Case | always |
 | `operations/index-rebuild-procedure.md` | `90-system/Operations/Index Rebuild Procedure.md` | Title Case | always |
+| `operations/rename-procedure.md` | `90-system/Operations/Rename and Move Procedure.md` | Title Case | always |
 | `page-templates/concept-template.md` | `90-system/Templates/Concept Template.md` | Title Case | on demand |
 | `page-templates/entity-template.md` | `90-system/Templates/Entity Template.md` | Title Case | on demand |
 | `page-templates/source-template.md` | `90-system/Templates/Source Template.md` | Title Case | always |

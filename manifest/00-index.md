@@ -12,7 +12,7 @@ Read this file first, then follow the order below.
 
 ## Reading order
 
-1. `01-interactive-setup.md` — ask Q1–Q7.
+1. `01-interactive-setup.md` — ask Q1–Q8.
 2. `04-vault-structure.md` — create the folder tree.
 3. `07-file-mapping.md` — copy `vault-artifacts/` to the vault.
 4. `05-conditional-rules.md` — skip/remove files per answers.

@@ -48,3 +48,16 @@ Ask the user these questions before creating anything:
 > always generated regardless of this choice.)
 > Options: Yes / No
 > Default: Yes
+
+### Q8: Vector Database / External Memory
+> Does your setup include a vector database or external memory store that
+> references vault notes (for semantic search, agent memory, or knowledge
+> retrieval)?
+> Options: None / Provider name + connection details (e.g. Qdrant, Chroma,
+> a session-memory service, a RAG pipeline)
+> Default: None
+>
+> Why this matters: external stores keep their own record of vault paths. The
+> answer is recorded in the vault header and EVERY rename or move must update
+> those references too (see Operations: Rename and Move Procedure). Without
+> this answer, renames silently leave dead pointers behind.

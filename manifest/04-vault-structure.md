@@ -54,7 +54,7 @@ Create this folder structure:
     ├── CLAUDE.md                       # Schema: page templates, naming, operations
     ├── Templates/                      # Note templates (9 files)
     ├── Standards/                      # Rules and conventions (3 files)
-    ├── Operations/                     # Procedure files (6 files)
+    ├── Operations/                     # Procedure files (7 files)
     ├── eval/                           # Golden questions
     ├── agent-memory/                   # Agent memories (5 subfolders)
     ├── session-logs/                   # Session summaries
