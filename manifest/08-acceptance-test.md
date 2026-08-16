@@ -24,8 +24,9 @@ updated: YYYY-MM-DD
 ### Structure
 - [ ] `raw/` exists with 6 subfolders (articles, papers, repos, meetings, conversations, assets)
 - [ ] `wiki/` exists with `index.md`, `open-questions.md`, `log/` (current month file), and 4 type subfolders
-- [ ] `90-system/` exists with `CLAUDE.md`, `Templates/`, `Standards/`, `Operations/` (6 files), `eval/`, `agent-memory/`, `session-logs/`, `Skills/`
+- [ ] `90-system/` exists with `CLAUDE.md`, `Templates/`, `Standards/`, `Operations/` (7 files), `eval/`, `agent-memory/`, `session-logs/`, `Skills/`
 - [ ] 00-06 numbered folders exist
+- [ ] PARA folders are exactly: 00-inbox, 01-projects, 02-areas, 03-notes, 04-resources, 05-people, 06-archive — no renamed, translated, or duplicated legacy variants
 - [ ] Daily folder exists matching Q4 (skip if Q4 = None)
 - [ ] Agent Memory per Q5 answer
 

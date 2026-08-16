@@ -41,7 +41,7 @@ Before writing ANY file to the vault, classify the content into one of three lay
 |-------|------|---------------|------------|
 | **raw/** | `raw/conversations/`, `raw/articles/`, `raw/papers/`, `raw/meetings/` | Original sources, chat transcripts, session records | IMMUTABLE after creation |
 | **wiki/** | `wiki/concepts/`, `wiki/entities/`, `wiki/sources/`, `wiki/log/` | Agent-generated knowledge, compiled concepts, session logs | Agent-owned, versioned |
-| **PARA/** | `00 Inbox/`, `01 Projects/`, `02 Areas/`, `03 Notes/`, `04 Resources/`, `05 People/`, `06 Archive/`, `Daily/` | Human-curated notes, project docs, reference material | Human/Agent mix |
+| **PARA/** | `00-inbox/`, `01-projects/`, `02-areas/`, `03-notes/`, `04-resources/`, `05-people/`, `06-archive/`, `Daily/` | Human-curated notes, project docs, reference material | Human/Agent mix |
 
 A single piece of work may touch ALL THREE layers. Example: documenting a migration = raw/conversations/ (session record) + wiki/concepts/ (knowledge) + wiki/log/ (operation log) + PARA (human-readable reference).
 
