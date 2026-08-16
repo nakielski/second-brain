@@ -53,6 +53,7 @@ updated: YYYY-MM-DD
 - [ ] Every `.md` file has frontmatter starting at line 1
 - [ ] `wiki/index.json` is valid JSON (parseable)
 - [ ] `frontmatter-standards.md` is the single source of truth
+- [ ] No placeholder uids: no `uid` value matching the `YYYYMMDD-XXXXXX` pattern anywhere in the vault (frontmatter or index files)
 - [ ] No empty folders outside `raw/`
 - [ ] One `wiki/concepts/` page per Q3 domain
 

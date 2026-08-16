@@ -60,3 +60,5 @@ Copy every file from `vault-artifacts/` to the vault target path.
 | `extras/_placeholder.md` | `_placeholder.md` | none | every empty non-raw folder |
 
 Q3 domain concept pages are generated during step 8, not copied from vault-artifacts/.
+
+When copying any artifact whose frontmatter contains a placeholder uid (`YYYYMMDD-XXXXXX` pattern), assign the real uid at copy time per Frontmatter Standards.md (type prefix + 8 hex of SHA-256(creation date + filename slug)). Placeholder uids must not survive into the vault.
