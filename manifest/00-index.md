@@ -27,6 +27,7 @@ Read this file first, then follow the order below.
 - `10-migrations.md` — migration notes for existing vaults; not read during bootstrap.
 - `11-proposed-extensions.md` — Semantic Search, Claim-Level Provenance — DECISION-REQUIRED; not read during bootstrap.
 - `12-write-rule-enforcement.md` — Three-layer write rule enforcement patterns (atomic writes, checklists, post-write verification).
+- `13-write-log.md` — Append-only vault write log (`.vault-write-log.jsonl`): format, rules, conflict detection, and what post-write verification reads.
 
 ## Key features
 

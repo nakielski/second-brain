@@ -58,6 +58,8 @@ Three-Layer Write Check:
 
 If a layer is "No" but should be affected: STOP, fix before proceeding. "I'll write raw/ and wiki/ later" is not acceptable. A task is NOT complete until ALL affected layers are updated.
 
+**Write log (MANDATORY, same turn as every write):** Append one line per written file to `.vault-write-log.jsonl` in the vault root — after each write, not batched at session end. Format and rules: `90-system/Standards/Write Log Standard.md`. Every layer is logged (raw/, wiki/, para, 90-system), including index regeneration and archive moves.
+
 For enforcement details (post-write verification, platform extension points, anti-patterns), see `manifest/12-write-rule-enforcement.md`.
 
 **Session End** (only if files were actually modified):

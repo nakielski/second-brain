@@ -31,7 +31,7 @@ updated: YYYY-MM-DD
 
 ### Key Files
 - [ ] `VAULT.md` exists with 11 rules + ownership matrix
-- [ ] `AGENTS.md` exists (max 80 lines)
+- [ ] `AGENTS.md` exists (max 90 lines)
 - [ ] `90-system/CLAUDE.md` exists
 - [ ] `wiki/index.md`, `wiki/index.json` exist
 - [ ] `wiki/open-questions.md`, `wiki/queue.md` exist
@@ -44,7 +44,7 @@ updated: YYYY-MM-DD
 ### Templates
 - [ ] 4 Core Templates (Note, Project, Daily Note, Source)
 - [ ] 5 Extended Templates (on demand)
-- [ ] 3 standards
+- [ ] 3 standards + Write Log Standard
 
 ### Operations (6 procedure files)
 - [ ] Ingest, Query, Lint, Review, Eval + Index Rebuild

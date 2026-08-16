@@ -37,6 +37,8 @@ Step 3: Write ALL layers in one batch:
          - wiki/concepts/<topic>.md
          - PARA/<target folder>/<note>.md
 Step 4: Register in memory/index (Honcho, decisions log, etc.)
+Step 5: Append one write-log line per written file to .vault-write-log.jsonl
+        (format: see Write Log Standard.md) — same turn as the writes
 ```
 
 A task is NOT complete until ALL affected layers are updated. "I'll write raw/ and wiki/ later" is not acceptable.
@@ -58,20 +60,21 @@ This checklist should be part of the agent's write protocol (skill, system promp
 
 ## Enforcement Layer 3: Post-Write Verification (Platform Extension)
 
-Advisory rules and checklists are "soft enforcement." For hard detection, a platform-specific verification step is recommended:
+Advisory rules and checklists are "soft enforcement." For hard detection, a platform-specific verification step is recommended. It MUST be based on the vault write log (see `13-write-log.md`), not on file modification times.
 
-- **Cron job or hook** that checks: did PARA writes happen in the last N hours without corresponding raw/ and wiki/ writes?
+- **Cron job or hook** that reads `.vault-write-log.jsonl`: did an actor write to PARA in the last N hours without matching raw/ and wiki/ entries by the SAME actor?
 - **Alert** (notification, log entry) when a violation is detected
 - **Silent** when everything is in order
 
-This is platform-specific and intentionally NOT part of the generic manifest. Each agent platform (Hermes, Claude Code, Cursor, etc.) implements its own verification. The manifest defines the pattern; the platform implements the code.
+This is platform-specific and intentionally NOT part of the generic manifest. Each agent platform implements its own verification reading the same log format. The manifest defines the pattern; the platform implements the code.
 
 ### Implementation Notes
 
 - Check interval: every 6 hours is sufficient
 - Time window: 24 hours (catches violations from the previous day)
-- Detection logic: if PARA files were modified but no raw/ or wiki/ files in the same window → alert
-- False positive mitigation: only check PARA directories that agents write to (00 Inbox, 01 Projects, 02 Areas, 03 Notes, 04 Resources). Ignore 06 Archive (historical) and Daily (automated).
+- Detection logic: for every `para` entry in the write log, require `raw` and `wiki` entries by the same actor, correlated via `related_to` or written within the same work session; entries by other actors do not count
+- Attribution: files modified without a write-log entry are human/sync edits — ignore them entirely. This is what makes the check free of the classic false-positive noise (a person opening a note in Obsidian or a sync client touching mtimes)
+- Scope: all five PARA content folders (00-inbox, 01-projects, 02-areas, 03-notes, 04-resources). Ignore 06-archive (historical) and Daily (automated)
 
 ## Anti-Pattern: Self-Violation
 

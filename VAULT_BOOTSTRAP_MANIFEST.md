@@ -87,6 +87,8 @@ After each step: update `BOOTSTRAP-STATE.md`.
 | `09-execution-summary.md` | Output template | Step 10 |
 | `10-migrations.md` | Migration notes | Not in bootstrap |
 | `11-proposed-extensions.md` | Proposed future extensions | Not in bootstrap |
+| `12-write-rule-enforcement.md` | Write rule enforcement patterns | Not in bootstrap |
+| `13-write-log.md` | Vault write log specification | Not in bootstrap |
 
 ## Post-bootstrap handling of manifest/
 

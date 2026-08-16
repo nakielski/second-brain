@@ -32,6 +32,7 @@ Copy every file from `vault-artifacts/` to the vault target path.
 | `standards/frontmatter-standards.md` | `90-system/Standards/Frontmatter Standards.md` | Title Case | always |
 | `standards/naming-conventions.md` | `90-system/Standards/Naming Conventions.md` | Title Case | always |
 | `standards/tag-taxonomy.md` | `90-system/Standards/Tag Taxonomy.md` | Title Case | always |
+| `standards/write-log-standard.md` | `90-system/Standards/Write Log Standard.md` | Title Case | always |
 | `skills/ingest-agent.md` | `90-system/Skills/Ingest Agent.md` | Title Case | always |
 | `skills/vault-steward.md` | `90-system/Skills/Vault Steward.md` | Title Case | always |
 | `mocs/projects-moc.md` | `01-projects/_Projects MOC.md` | Prefix `_` | always |

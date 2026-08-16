@@ -2,3 +2,4 @@
 .trash/
 *.tmp
 .lock
+.vault-write-log.jsonl
