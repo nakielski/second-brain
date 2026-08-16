@@ -63,6 +63,7 @@ This checklist should be part of the agent's write protocol (skill, system promp
 Advisory rules and checklists are "soft enforcement." For hard detection, a platform-specific verification step is recommended. It MUST be based on the vault write log (see `13-write-log.md`), not on file modification times.
 
 - **Cron job or hook** that reads `.vault-write-log.jsonl`: did an actor write to PARA in the last N hours without matching raw/ and wiki/ entries by the SAME actor?
+- **Index drift check** in the same run: reconcile `wiki/` (and `agent-memory/`) files on disk against `index.json` — every file present, every index entry backed by a file; drift of any direction alerts
 - **Alert** (notification, log entry) when a violation is detected
 - **Silent** when everything is in order
 
@@ -75,6 +76,7 @@ This is platform-specific and intentionally NOT part of the generic manifest. Ea
 - Detection logic: for every `para` entry in the write log, require `raw` and `wiki` entries by the same actor, correlated via `related_to` or written within the same work session; entries by other actors do not count
 - Attribution: files modified without a write-log entry are human/sync edits — ignore them entirely. This is what makes the check free of the classic false-positive noise (a person opening a note in Obsidian or a sync client touching mtimes)
 - Scope: all five PARA content folders (00-inbox, 01-projects, 02-areas, 03-notes, 04-resources). Ignore 06-archive (historical) and Daily (automated)
+- Index drift: compare the file sets of `wiki/` and `agent-memory/` against `index.json` / `memory-index.json` entries (paths, not mtimes — content hashing optional). Drift in either direction alerts; the fix is an index rebuild per the Index Rebuild Procedure, not manual index edits
 
 ## Anti-Pattern: Self-Violation
 
