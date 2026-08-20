@@ -104,8 +104,8 @@ This project is built on principles that go beyond "it works":
 - **Interactive, not static** — 7 setup questions personalize the vault before a
   single file is created. Language, domains, memory depth, and daily notes are
   all configurable.
-- **Tested, not assumed** — A 46-item acceptance test validates every bootstrap.
-  Structure, frontmatter, JSON validity, and content completeness are all checked.
+- **Tested, not assumed** — A formal acceptance test validates structure, frontmatter,
+  JSON validity, and links before the vault is declared done.
 - **Governed, not improvised** — 11 enforceable rules in `VAULT.md` with a defined
   precedence chain. Privacy protections, concurrency control, and immutability
   guarantees are explicit, not implicit.
