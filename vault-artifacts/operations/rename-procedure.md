@@ -37,8 +37,9 @@ updated: 2026-08-16
    - update MOCs and index pages
    - re-register or update the entry in every external system from Q8 so
      lookups by old path heal instead of dead-ending
-6. Append a `rename` line per affected file to `.vault-write-log.jsonl`
-   (actor, old → new path; see Write Log Standard.md).
+6. A `rename` line per affected file in the write log (actor, old → new path;
+   see Write Log Standard.md) — written by the write-hook server when the rename
+   goes through it, otherwise appended to `.vault-write-log.jsonl` yourself.
 
 ## After the rename
 

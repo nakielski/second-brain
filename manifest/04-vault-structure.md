@@ -17,7 +17,8 @@ Create this folder structure:
 ├── AGENTS.md                           # Agent protocol (session start/work/end)
 ├── VAULT.md                            # Operating contract (front door)
 ├── Home.md                             # Main MOC (links to all areas)
-├── .vault-write-log.jsonl              # Append-only write log (created by writing agents)
+├── .vault-write-log.jsonl              # Append-only write log (direct writers)
+├── .vault-write-log.d/                 # Per-actor log shards (written by a write-hook server)
 ├── .gitignore
 ├── .obsidian/                          # Obsidian base config
 │

@@ -47,7 +47,8 @@ Following the full write protocol (AGENTS.md), in one batch:
 
 ## Step 4 — Register and close
 
-7. Append write-log lines for every file written in steps 4–6.
+7. Make sure a write-log line exists for every file written in steps 4–6
+   (written by the write-hook server; direct writers append it themselves).
 8. Register the remediation in the memory store (Q8) so future sessions find
    the completed gap-closure.
 9. Re-run the verification check mentally or via tooling: the flagged entry
