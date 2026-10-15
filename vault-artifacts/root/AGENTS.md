@@ -58,7 +58,7 @@ Three-Layer Write Check:
 
 If a layer is "No" but should be affected: STOP, fix before proceeding. "I'll write raw/ and wiki/ later" is not acceptable. A task is NOT complete until ALL affected layers are updated.
 
-**Write log (MANDATORY, same turn as every write):** Append one line per written file to `.vault-write-log.jsonl` in the vault root — after each write, not batched at session end. Format and rules: `90-system/Standards/Write Log Standard.md`. Every layer is logged (raw/, wiki/, para, 90-system), including index regeneration and archive moves.
+**Write log (MANDATORY, same turn as every write):** One line per written file — after each write, not batched at session end. Format and rules: `90-system/Standards/Write Log Standard.md`. Every layer is logged (raw/, wiki/, para, 90-system), including index regeneration and archive moves. **Who writes it:** if you reach the vault through a write-hook server (e.g. an MCP server that logs every write and keeps `index.json` in sync), the server writes the line — do NOT append it yourself and do NOT edit `index.json` by hand; pass `related_to` on the write call instead. Only direct writers without such a server append to `.vault-write-log.jsonl` themselves.
 
 **Unattended writers:** Automated processes (cron jobs, watchers) must not write vault content directly — they deliver, and an agent performs the structured write.
 
@@ -67,7 +67,7 @@ For enforcement details (post-write verification, platform extension points, ant
 **Session End** (only if files were actually modified):
 1. Write session log to 90-system/session-logs/.
 2. Update memory-index.md if memories were created.
-3. Regenerate index.json files via Index Rebuild Procedure.md.
+3. Regenerate index.json files via Index Rebuild Procedure.md (not needed for what a write-hook server already maintains).
 4. Append to wiki log if any operation was performed.
 5. Summarize in 2–3 sentences.
 

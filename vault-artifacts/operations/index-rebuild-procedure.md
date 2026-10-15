@@ -11,6 +11,11 @@ updated: YYYY-MM-DD
 # Index Rebuild Procedure
 
 > `index.json` is maintained by agents, not by a script. Two modes.
+>
+> Exception: when the vault is reached through a write-hook server that keeps
+> `index.json` in sync on every write (e.g. an MCP server), Mode A is done by the
+> server. Agents then do not edit `index.json` at all; Mode B is requested from
+> the server's rebuild function or done by the maintainer.
 
 ## Mode A — Incremental (default)
 

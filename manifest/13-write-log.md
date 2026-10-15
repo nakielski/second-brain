@@ -3,7 +3,7 @@ title: "13 — Write Log"
 type: note
 status: active
 created: 2026-08-16
-updated: 2026-08-16
+updated: 2026-10-16
 ---
 
 ← Back to [[00-index]]
@@ -11,9 +11,10 @@ updated: 2026-08-16
 # Write Log
 
 The vault keeps an append-only write log: `.vault-write-log.jsonl` in the vault
-root. Every agent write appends one line per written file, in the same turn as
-the write itself. Verification tooling reads this log — never file modification
-times.
+root, plus per-actor shard files under `.vault-write-log.d/` when a write-hook
+server is used (see below). Every agent write produces one line per written
+file, in the same turn as the write itself. Verification tooling reads this log
+— never file modification times.
 
 ## Why a write log
 
@@ -24,9 +25,31 @@ produces false positives (human edits flagged as violations) and false negatives
 inside a shared time window). A write log solves both: it records who wrote
 what, when, to which layer.
 
+## Who writes the line
+
+The line is written by whatever performs the file write:
+
+- **Write-hook servers.** When agents reach the vault through a server that runs
+  the append hook on every write (for example an MCP server for the vault), the
+  server is the only writer of the log lines for those writes. Agents MUST NOT
+  append lines for them themselves — not to the shared file, and not around the
+  server via the filesystem. A hand-written line next to the server's line is a
+  duplicate, usually with a guessed timestamp. To link the writes of one task,
+  the agent passes `related_to` with the write call.
+- **Direct writers.** Agents, tools and automations that write files without
+  such a server append their own line to `.vault-write-log.jsonl` in the same
+  turn.
+
+On a synchronized vault (Syncthing, cloud drives), file-level sync cannot merge
+concurrent appends to ONE file from two devices: one side's lines are silently
+lost. Write-hook servers therefore SHOULD write per-actor shard files
+`.vault-write-log.d/<actor>.jsonl` (one writer per file). Readers merge
+`.vault-write-log.jsonl` with all shard files (and any sync-conflict leftovers).
+
 ## Format
 
-One JSON object per line, UTF-8, appended to `.vault-write-log.jsonl`:
+One JSON object per line, UTF-8, appended to `.vault-write-log.jsonl` (direct
+writers) or to the actor's shard file (write-hook servers):
 
 ```json
 {"ts": "2026-08-16T09:12:44Z", "actor": "main-agent", "layer": "para", "action": "create", "path": "01-projects/foo/bar.md", "uid": "concept-3fa2b9", "related_to": "concept-1c88de"}
@@ -61,5 +84,7 @@ One JSON object per line, UTF-8, appended to `.vault-write-log.jsonl`:
 ## Platform note
 
 The log format and verification semantics are platform-neutral. Each platform
-implements the append hook and the checker. The runtime copy of this
+implements the append hook and the checker. Where the hook runs in a server,
+agent instructions must say so explicitly — otherwise agents keep following the
+direct-writer rule and duplicate every line. The runtime copy of this
 specification lives in the vault at `90-system/Standards/Write Log Standard.md`.

@@ -37,8 +37,10 @@ Step 3: Write ALL layers in one batch:
          - wiki/concepts/<topic>.md
          - PARA/<target folder>/<note>.md
 Step 4: Register in memory/index (Honcho, decisions log, etc.)
-Step 5: Append one write-log line per written file to .vault-write-log.jsonl
-        (format: see Write Log Standard.md) — same turn as the writes
+Step 5: One write-log line per written file (format: see Write Log Standard.md)
+        — same turn as the writes. Written by the write-hook server when the
+        vault is reached through one (pass related_to); direct writers append
+        to .vault-write-log.jsonl themselves
 ```
 
 A task is NOT complete until ALL affected layers are updated. "I'll write raw/ and wiki/ later" is not acceptable.
@@ -62,7 +64,7 @@ This checklist should be part of the agent's write protocol (skill, system promp
 
 Advisory rules and checklists are "soft enforcement." For hard detection, a platform-specific verification step is recommended. It MUST be based on the vault write log (see `13-write-log.md`), not on file modification times.
 
-- **Cron job or hook** that reads `.vault-write-log.jsonl`: did an actor write to PARA in the last N hours without matching raw/ and wiki/ entries by the SAME actor?
+- **Cron job or hook** that reads the write log (`.vault-write-log.jsonl` merged with `.vault-write-log.d/*.jsonl`): did an actor write to PARA in the last N hours without matching raw/ and wiki/ entries by the SAME actor?
 - **Index drift check** in the same run: reconcile `wiki/` (and `agent-memory/`) files on disk against `index.json` — every file present, every index entry backed by a file; drift of any direction alerts
 - **Alert** (notification, log entry) when a violation is detected; remediation follows the `Remediation Procedure` operation
 - **Silent** when everything is in order
