@@ -77,7 +77,7 @@ writers) or to the actor's shard file (write-hook servers):
 ## What verification reads from it
 
 - **Three-layer compliance:** every `para` entry needs matching `raw` and `wiki` entries by the same actor within the same work item (correlated via `related_to` or timestamp proximity). Entries from other actors do not count.
-- **Conflict detection:** two actors writing the same path within a short window is surfaced as a conflict report. Replaces lock-file protocols for concurrent multi-agent setups.
+- **Conflict detection:** two actors writing the same path within a short window is surfaced as a conflict report. Scope locks (VAULT.md rule 6) prevent most of these; the log shows the ones that still happen.
 - **Index drift:** `wiki` entries in the log that never made it into `index.json` indicate a missed index regeneration (see `Index Rebuild Procedure.md`).
 - **Human edits:** files modified without a log entry are, by definition, not agent writes. Verification ignores their mtimes entirely.
 

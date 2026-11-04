@@ -26,7 +26,7 @@ Structure:
 - 5 MOCs
 - 2 agent skills
 - Agent Memory Protocol (5 types)
-- VAULT.md (11 rules, single source of truth)
+- VAULT.md (12 rules, single source of truth)
 
 Operations available:
 - INGEST: Drop a source in raw/ → agent builds wiki pages

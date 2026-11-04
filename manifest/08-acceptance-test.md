@@ -31,7 +31,7 @@ updated: YYYY-MM-DD
 - [ ] Agent Memory per Q5 answer
 
 ### Key Files
-- [ ] `VAULT.md` exists with 11 rules + ownership matrix
+- [ ] `VAULT.md` exists with 12 rules + ownership matrix
 - [ ] `AGENTS.md` exists (max 90 lines)
 - [ ] `90-system/CLAUDE.md` exists
 - [ ] `wiki/index.md`, `wiki/index.json` exist

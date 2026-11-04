@@ -17,6 +17,10 @@ updated: YYYY-MM-DD
 0. **Inbox handoff:** if the source sits in 00-inbox/, the agent renames it to
    YYYY-MM-DD_original-name.ext and moves it to the matching raw/ subfolder.
    Immutability begins only AFTER the file is placed in raw/.
+   Binary originals (PDF, Office, images, mails, archives) go to
+   `raw/assets/YYYY/MM/` with a companion note per VAULT.md rule 12
+   (write-hook server: `attach_file`). The `.extract.md` companion is
+   created next to the file there.
 0b. **Dedup check:** compute SHA-256 over the raw content. Look up the hash in
     wiki/index.json under `content_hash`; also check for a matching `url`. On hit:
     do NOT create a new source page. Report to user and offer to update the

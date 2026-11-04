@@ -60,6 +60,10 @@ If a layer is "No" but should be affected: STOP, fix before proceeding. "I'll wr
 
 **Write log (MANDATORY, same turn as every write):** One line per written file — after each write, not batched at session end. Format and rules: `90-system/Standards/Write Log Standard.md`. Every layer is logged (raw/, wiki/, para, 90-system), including index regeneration and archive moves. **Who writes it:** if you reach the vault through a write-hook server (e.g. an MCP server that logs every write and keeps `index.json` in sync), the server writes the line — do NOT append it yourself and do NOT edit `index.json` by hand; pass `related_to` on the write call instead. Only direct writers without such a server append to `.vault-write-log.jsonl` themselves.
 
+**Locks (VAULT.md rule 6):** before a task that writes more than one file of one area, lock that folder or note (`lock_scope` on a write-hook server) and release it at the end. A write refused because another agent holds the scope is deliberate: do not retry blindly, check `lock_status`, then wait or work elsewhere.
+
+**Attachments (VAULT.md rule 12):** original files go to `raw/assets/YYYY/MM/` with a companion note, through `attach_file` when a write-hook server provides it. Never store them in PARA folders, never write them as notes.
+
 **Unattended writers:** Automated processes (cron jobs, watchers) must not write vault content directly — they deliver, and an agent performs the structured write.
 
 For enforcement details (post-write verification, platform extension points, anti-patterns), see `manifest/12-write-rule-enforcement.md`.
