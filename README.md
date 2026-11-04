@@ -92,8 +92,10 @@ defines the session protocol, layer classification, and write rules. Prefer one
 agent session as the single write path for vault content, including content
 triggered by automations (they deliver, the agent writes — see
 `manifest/14-unattended-writes.md`). If multiple agents share the vault, the
-append-only write log (`.vault-write-log.jsonl`) is the coordination surface:
-conflicts are detected from overlapping log entries, not lock files.
+append-only write log (`.vault-write-log.jsonl`) records who wrote what, and
+scope locks (`.vault-lock.d/`, VAULT.md rule 6) keep two agents out of the same
+folder during multi-file tasks. Conflicts that slip through show up as
+overlapping log entries.
 
 ## Design Principles
 

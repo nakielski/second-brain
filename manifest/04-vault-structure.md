@@ -19,6 +19,7 @@ Create this folder structure:
 ├── Home.md                             # Main MOC (links to all areas)
 ├── .vault-write-log.jsonl              # Append-only write log (direct writers)
 ├── .vault-write-log.d/                 # Per-actor log shards (written by a write-hook server)
+├── .vault-lock.d/                      # Per-agent scope locks (VAULT.md rule 6)
 ├── .gitignore
 ├── .obsidian/                          # Obsidian base config
 │
@@ -28,7 +29,7 @@ Create this folder structure:
 │   ├── repos/                          # Code repository snapshots
 │   ├── meetings/                       # Meeting notes/transcripts
 │   ├── conversations/                  # Chat logs, conversations
-│   └── assets/                         # Images, PDFs, data files
+│   └── assets/YYYY/MM/                 # Original files + companion notes (rule 12)
 │
 ├── wiki/                               # LAYER 2: Agent-generated knowledge
 │   ├── index.md                        # Content catalog for humans (Dataview)
